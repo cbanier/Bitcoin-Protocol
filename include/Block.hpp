@@ -22,7 +22,7 @@ class Block {
     Block* getPreviousBlock();
 
     // Setters
-    void setBlockHeader(const BlockHeader& blockHeader);
-    void setTransactions(const std::vector<Transaction>& transactions);
+    void setBlockHeader(BlockHeader& blockHeader);
+    void setTransactions(std::vector<Transaction>& transactions);
     void setPreviousBlock(Block* previousBlock);
 };

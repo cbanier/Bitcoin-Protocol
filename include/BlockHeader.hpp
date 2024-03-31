@@ -23,9 +23,9 @@ class BlockHeader {
     std::string getHash();
 
     // Setters
-    void setPrevHash(const std::string& prevHash);
-    void setMerkleRootHash(const std::string& merkleRootHash);
+    void setPrevHash(std::string& prevHash);
+    void setMerkleRootHash(std::string& merkleRootHash);
     void setNounce(int nounce);
     void setTimestamp(float timestamp);
-    void setHash(const std::string& Hash);
+    void setHash(std::string& Hash);
 };
