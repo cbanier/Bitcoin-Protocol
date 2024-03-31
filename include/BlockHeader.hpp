@@ -14,4 +14,18 @@ class BlockHeader {
     BlockHeader() {}
     BlockHeader(std::string prevHash, std::string merkleRootHash, int nounce, float timestamp,
                 std::string Hash);
+
+    // Getters
+    std::string getPrevHash();
+    std::string getMerkleRootHash();
+    int getNounce();
+    float getTimestamp();
+    std::string getHash();
+
+    // Setters
+    void setPrevHash(const std::string& prevHash);
+    void setMerkleRootHash(const std::string& merkleRootHash);
+    void setNounce(int nounce);
+    void setTimestamp(float timestamp);
+    void setHash(const std::string& Hash);
 };
