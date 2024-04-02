@@ -9,13 +9,7 @@
 /* ********************************************************************** */
 
 Node::Node(const std::string& value) {
-    this->value = value;
-
-    if (this->value.size() > 0) {
-        this->hash.resize(SHA256_DIGEST_LENGTH);
-        this->hash = sha256(this->value);
-    }
-
+    this->hash = sha256(value);
     this->left = nullptr;
     this->right = nullptr;
 }
@@ -42,7 +36,7 @@ Node* MerkleTree::buildMerkleTree(const std::vector<std::string>& leafValues) {
     while (parents.size() > 1) {
         std::vector<Node*> newParents;
         for (size_t i = 0; i < parents.size(); i += 2) {
-            Node* parent = new Node(parents[i]->value + parents[i + 1]->value);
+            Node* parent = new Node(parents[i]->hash + parents[i + 1]->hash);
             parent->left = parents[i];
             parent->right = parents[i + 1];
             newParents.push_back(parent);
@@ -72,6 +66,6 @@ void MerkleTree::auxDisplayMerkleTree(Node* root, int level) {
     for (int i = 0; i < level; i++) {
         std::cout << "\t";
     }
-    std::cout << root->value << std::endl;
+    std::cout << root->hash << std::endl;
     auxDisplayMerkleTree(root->left, level + 1);
 }

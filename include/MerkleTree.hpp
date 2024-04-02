@@ -4,8 +4,7 @@
 #include <vector>
 
 struct Node {
-    std::string value;
-    std::vector<unsigned char> hash;
+    std::string hash;
     Node* left;
     Node* right;
 
@@ -20,14 +19,7 @@ class MerkleTree {
     MerkleTree(std::vector<std::string>& leafValues);
     inline ~MerkleTree() { auxMerkleTreeDesallocator(merkleTreeRoot); }
 
-    inline std::vector<unsigned char> getMerkleTreeRootHashed(void) {
-        return merkleTreeRoot->hash;
-    }  // Keep the both or not !
-    /*
-    inline std::string getMerkleTreeRootHashed(void) {
-        std::string hashString(merkleTreeRoot->hash.begin(), merkleTreeRoot->hash.end());
-        return hashString;
-    } */
+    inline Node* getMerkleTreeRoot(void) { return merkleTreeRoot; }
     inline void displayMerkleTree(void) { auxDisplayMerkleTree(merkleTreeRoot, 0); }
 
    private:
