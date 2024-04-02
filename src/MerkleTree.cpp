@@ -1,3 +1,4 @@
+#include <openssl/sha.h>
 #include <iostream>
 
 #include "MerkleTree.hpp"
