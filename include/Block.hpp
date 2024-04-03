@@ -8,21 +8,22 @@
 class Transaction {};
 
 class Block {
-   private:
+private:
     BlockHeader blockHeader;
     std::vector<Transaction> transactions;
     Block* previousBlock;
 
-   public:
+public:
+    // Constructor
     Block(BlockHeader blockHeader, std::vector<Transaction> transactions, Block* previousBlock);
 
     // Getters
-    BlockHeader getBlockHeader();
-    std::vector<Transaction> getTransactions();
-    Block* getPreviousBlock();
+    inline BlockHeader getBlockHeader() const { return blockHeader; }
+    inline std::vector<Transaction> getTransactions() const { return transactions; }
+    inline Block* getPreviousBlock() const { return previousBlock; }
 
     // Setters
-    void setBlockHeader(BlockHeader& blockHeader);
-    void setTransactions(std::vector<Transaction>& transactions);
-    void setPreviousBlock(Block* previousBlock);
+    inline void setBlockHeader(const BlockHeader& blockHeader) { this->blockHeader = blockHeader; }
+    inline void setTransactions(const std::vector<Transaction>& transactions) { this->transactions = transactions; }
+    inline void setPreviousBlock(Block* previousBlock) { this->previousBlock = previousBlock; }
 };

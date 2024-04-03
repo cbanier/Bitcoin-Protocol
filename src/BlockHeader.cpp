@@ -6,21 +6,10 @@ BlockHeader::BlockHeader(std::string prevHash, std::string merkleRootHash, int n
     this->merkleRootHash = merkleRootHash;
     this->nounce = nounce;
     this->timestamp = timestamp;
-    this->hash = hash;
+    this->hash = this->getBlockHeaderHash();
 }
 
-// Getters
-std::string BlockHeader::getPrevHash() { return prevHash; }
-std::string BlockHeader::getMerkleRootHash() { return merkleRootHash; }
-int BlockHeader::getNounce() { return nounce; }
-float BlockHeader::getTimestamp() { return timestamp; }
-std::string BlockHeader::getHash() { return hash; }
-
-// Setters
-void BlockHeader::setPrevHash(std::string& prevHash) { this->prevHash = prevHash; }
-void BlockHeader::setMerkleRootHash(std::string& merkleRootHash) {
-    this->merkleRootHash = merkleRootHash;
+std::string BlockHeader::getBlockHeaderHash(){
+    std::string blockHeaderHash = this->prevHash + this->merkleRootHash + std::to_string(this->nounce) + std::to_string(this->timestamp);
+    return blockHeaderHash;
 }
-void BlockHeader::setNounce(int nounce) { this->nounce = nounce; }
-void BlockHeader::setTimestamp(float timestamp) { this->timestamp = timestamp; }
-void BlockHeader::setHash(std::string& hash) { this->hash = hash; }
