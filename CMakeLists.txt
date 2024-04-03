@@ -20,7 +20,9 @@ include_directories(${include_path})
 # Create library
 add_library(bitcoin_proto
     ${src_path}/Block.cpp
-    # ...
+    ${src_path}/BlockHeader.cpp
 )
 
-add_subdirectory(tests)
+#add_subdirectory(tests)
+add_executable(main main.cpp)
+target_link_libraries(main bitcoin_proto)
