@@ -1,2 +1,0 @@
-/usr/bin/ar qc libbitcoin_proto.a CMakeFiles/bitcoin_proto.dir/src/Block.cpp.o CMakeFiles/bitcoin_proto.dir/src/BlockHeader.cpp.o CMakeFiles/bitcoin_proto.dir/src/utils.cpp.o
-/usr/bin/ranlib libbitcoin_proto.a
