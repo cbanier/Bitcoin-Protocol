@@ -26,4 +26,8 @@ public:
     inline void setBlockHeader(const BlockHeader& blockHeader) { this->blockHeader = blockHeader; }
     inline void setTransactions(const std::vector<Transaction>& transactions) { this->transactions = transactions; }
     inline void setPreviousBlock(Block* previousBlock) { this->previousBlock = previousBlock; }
+
+    // BlockChain size
+
+    int getBlockChainSize(void);
 };

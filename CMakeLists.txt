@@ -4,6 +4,10 @@ project(Bitcoin-Protocol)
 include(CTest)
 enable_testing()
 
+# Find OpenSSL package
+find_package(OpenSSL REQUIRED)
+include_directories(${OPENSSL_INCLUDE_DIR})
+
 # Set cmake options
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -19,10 +23,11 @@ include_directories(${include_path})
 
 # Create library
 add_library(bitcoin_proto
+    ${src_path}/common.cpp
     ${src_path}/Block.cpp
     ${src_path}/BlockHeader.cpp
 )
 
-#add_subdirectory(tests)
-add_executable(main main.cpp)
-target_link_libraries(main bitcoin_proto)
+target_link_libraries(bitcoin_proto m ${OPENSSL_LIBRARIES})
+
+add_subdirectory(tests)
