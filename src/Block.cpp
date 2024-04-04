@@ -1,4 +1,5 @@
 #include "Block.hpp"
+#include <iostream>
 
 Block::Block(BlockHeader blockHeader, std::vector<Transaction> transactions, Block* previousBlock) {
     this->blockHeader = blockHeader;
@@ -7,12 +8,14 @@ Block::Block(BlockHeader blockHeader, std::vector<Transaction> transactions, Blo
 }
 
 int Block::getBlockChainSize(void){
-    
+
     int i = 1;
+
     Block* currentBlock = this->getPreviousBlock();
-    while (currentBlock->getPreviousBlock() != nullptr) {
-        i++;
+
+    while (currentBlock != nullptr) {
         currentBlock = currentBlock->getPreviousBlock();
+        i++;
     }
     return i;
 }

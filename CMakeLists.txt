@@ -23,9 +23,9 @@ include_directories(${include_path})
 
 # Create library
 add_library(bitcoin_proto
-    ${src_path}/common.cpp
     ${src_path}/Block.cpp
     ${src_path}/BlockHeader.cpp
+    ${src_path}/common.cpp
 )
 
 target_link_libraries(bitcoin_proto m ${OPENSSL_LIBRARIES})

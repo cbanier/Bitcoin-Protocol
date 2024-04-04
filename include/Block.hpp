@@ -5,7 +5,13 @@
 #include "BlockHeader.hpp"
 
 /*temporary*/
-class Transaction {};
+class Transaction {
+    private:
+    std::string trx;
+
+    public:
+    inline Transaction(std::string trx){ this->trx = trx;};
+};
 
 class Block {
 private:
