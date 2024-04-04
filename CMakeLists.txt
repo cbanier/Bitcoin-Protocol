@@ -25,6 +25,8 @@ include_directories(${include_path})
 add_library(bitcoin_proto
     ${src_path}/common.cpp
     ${src_path}/MerkleTree.cpp
+    ${src_path}/Block.cpp
+    ${src_path}/BlockHeader.cpp
 )
 
 target_link_libraries(bitcoin_proto m ${OPENSSL_LIBRARIES})
