@@ -9,5 +9,4 @@ endfunction()
 # Create test executables using the function
 create_test_executable(test-block test_Block.cpp)
 create_test_executable(test-block-header test_BlockHeader.cpp)
-
-
+create_test_executable(test-merkle-tree test_MerkleTree.cpp)
